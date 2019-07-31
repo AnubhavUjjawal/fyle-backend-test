@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import generics
+from rest_framework.decorators import action
 
 from .errors import MissingQueryParameterException
 from .models import Banks, Branches
@@ -21,6 +24,23 @@ class BranchListView(generics.ListAPIView):
         if bank_name:
             res = res.filter(bank__name=bank_name)
         return res
+
+    city_param = openapi.Parameter(
+        'city',
+        openapi.IN_QUERY,
+        description="The city to query for.",
+        type=openapi.TYPE_STRING)
+    bank_name_param = openapi.Parameter(
+        'bank',
+        openapi.IN_QUERY,
+        description="The bank name to search for.",
+        type=openapi.TYPE_STRING)
+
+    @swagger_auto_schema(manual_parameters=[
+        city_param, bank_name_param
+    ])
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
 
 
 class BranchRetrieveView(generics.RetrieveAPIView):
