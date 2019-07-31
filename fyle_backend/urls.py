@@ -23,7 +23,7 @@ from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Snippets API",
+      title="Fyle Backend-Test API",
       default_version='v1',
       description="Test description",
       terms_of_service="https://www.google.com/policies/terms/",

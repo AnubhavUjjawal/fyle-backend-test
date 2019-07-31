@@ -8,6 +8,10 @@ Essentials the applications should have:
 - each API should support limit & offset parameters
 - APIs should be authenticated using a JWT key, with validity = 5 days.
 
+- Host URL: https://limitless-springs-53595.herokuapp.com/
+- Admin Panel: https://limitless-springs-53595.herokuapp.com/admin/
+- Swagger: https://limitless-springs-53595.herokuapp.com/swagger/
+
 ## My Solution Stack
 
 - WebFramework: Django
