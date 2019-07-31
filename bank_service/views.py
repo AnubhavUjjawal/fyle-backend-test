@@ -12,7 +12,6 @@ class BranchListView(generics.ListAPIView):
     def get_queryset(self):
         bank_name = self.request.query_params.get('bank_name')
         city = self.request.query_params.get('city')
-        print(city, bank_name)
         if city is None and bank_name is None:
             raise MissingQueryParameterException(
                 detail='city and bank_name missing in query params. Provide at least one.')
