@@ -31,7 +31,7 @@ class BranchListView(generics.ListAPIView):
         description="The city to query for.",
         type=openapi.TYPE_STRING)
     bank_name_param = openapi.Parameter(
-        'bank',
+        'bank_name',
         openapi.IN_QUERY,
         description="The bank name to search for.",
         type=openapi.TYPE_STRING)
